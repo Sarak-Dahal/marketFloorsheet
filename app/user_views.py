@@ -3,6 +3,7 @@ import pandas as pd
 from app import app
 import csv
 
+
 global session
 
 
@@ -18,7 +19,8 @@ def login():
 
         if (un=="sarak" and ps=="sarak@45"):
             session['loggedin'] = True
-            url = "http://www.nepalstock.com/main/floorsheet/index/1/stock-symbol/asc/YTo1OntzOjExOiJjb250cmFjdC1ubyI7czowOiIiO3M6MTI6InN0b2NrLXN5bWJvbCI7czowOiIiO3M6NToiYnV5ZXIiO3M6MjoiNTgiO3M6Njoic2VsbGVyIjtzOjA6IiI7czo2OiJfbGltaXQiO3M6MzoiNTAwIjt9?contract-no=&stock-symbol=&buyer=&seller="
+            getSymbol='slicl'
+            url = "http://www.nepalstock.com/main/floorsheet/index/1/stock-symbol/asc/YTo1OntzOjExOiJjb250cmFjdC1ubyI7czowOiIiO3M6MTI6InN0b2NrLXN5bWJvbCI7czowOiIiO3M6NToiYnV5ZXIiO3M6MjoiNTgiO3M6Njoic2VsbGVyIjtzOjA6IiI7czo2OiJfbGltaXQiO3M6MzoiNTAwIjt9?contract-no=&stock-symbol="+getSymbol+"&buyer=&seller=&_limit=30000"
             df = pd.read_html(url, header=1)
             data = df[0]
             data = data.iloc[:-3]
@@ -26,8 +28,16 @@ def login():
             del data['Contract No']
             del data['Unnamed: 8']
             del data['Unnamed: 9']
+            del data['Rate']
             data.to_csv('csvFiles/floorsheet.csv')
             result = []
+
+            data['Quantity'] = data['Quantity'].astype(float)
+
+            a = data.groupby('Buyer Broker').sum()
+            a.to_csv('csvFiles/floorsheet.csv')
+
+
             tData = open('csvFiles/floorsheet.csv')
             reader = csv.DictReader(tData)
             for row in reader:
@@ -68,7 +78,7 @@ def floorsheet():
 
         data['Quantity']=data['Quantity'].astype(float)
 
-        a=data.groupby('Stock Symbol')['Amount'].sum()
+        a=data.groupby('Stock Symbol').sum()
         a.to_csv('csvFiles/output.csv')
 
 
@@ -79,9 +89,33 @@ def floorsheet():
         fieldnames = [key for key in result[0].keys()]
 
         if buy=="":
-            buy=0
+            buy='-'
         if sell=="":
-            sell=0
+            sell='-'
         return render_template('index.html', result=result, fieldnames=fieldnames, len=len,buy=buy,sell=sell)
+
+
+@app.route("/eps")
+def eps():
+    sym='hidcl'
+    url = "https://merolagani.com/CompanyDetail.aspx?symbol="+sym+""
+    result = []
+    tData = open('csvFiles/floorsheet.csv')
+    reader = csv.DictReader(tData)
+    for row in reader:
+        result.append(dict(row))
+    fieldnames = [key for key in result[0].keys()]
+
+    return render_template('eps.html', result=result, fieldnames=fieldnames, len=len)
+
+
+
+
+
+
+
+
+
+
 
 
