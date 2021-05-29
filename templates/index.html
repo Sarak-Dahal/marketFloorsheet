@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <title>Floorsheet</title>
-      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css"/>
-      <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-      <script src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
-   </head>
+{% extends 'layout.html' %}
+{% block content %}
+<title>Floorsheet</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css"/>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+
    <body>
       <div class="main-content">
          <header>
@@ -71,7 +69,7 @@
          </main>
       </div>
    </body>
-</html>
+
 <style>
    .btn-block{
    color: #fff;
@@ -105,3 +103,5 @@
    color:#fff !important;
    }
 </style>
+
+{% endblock %}
