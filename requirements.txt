@@ -15,4 +15,3 @@ gunicorn
 whitenoise
 virtualenv
 heroku
-redirect
