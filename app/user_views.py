@@ -34,7 +34,8 @@ def login():
     if request.method == 'POST' and 'un' in request.form and 'ps' in request.form:
         un = request.form['un']
         ps = request.form['ps']
-
+        un = un.lower()
+        ps = ps.lower()
         if (un=="sarak" and ps=="sarak@45" or un=="shishir" and ps=="shishir@45" or un=="santosh" and ps=="santosh@45"):
             session['loggedin'] = True
             url = "http://www.nepalstock.com/main/floorsheet/index/1/stock-symbol/asc/YTo1OntzOjExOiJjb250cmFjdC1ubyI7czowOiIiO3M6MTI6InN0b2NrLXN5bWJvbCI7czowOiIiO3M6NToiYnV5ZXIiO3M6MjoiNTgiO3M6Njoic2VsbGVyIjtzOjA6IiI7czo2OiJfbGltaXQiO3M6MzoiNTAwIjt9?contract-no=&stock-symbol=&buyer=&seller="
