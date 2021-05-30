@@ -12,25 +12,6 @@ def home():
 
 @app.route("/login",methods=['GET','POST'])
 def login():
-    if (session['loggedin'] == True):
-        url = "http://www.nepalstock.com/main/floorsheet/index/1/stock-symbol/asc/YTo1OntzOjExOiJjb250cmFjdC1ubyI7czowOiIiO3M6MTI6InN0b2NrLXN5bWJvbCI7czowOiIiO3M6NToiYnV5ZXIiO3M6MjoiNTgiO3M6Njoic2VsbGVyIjtzOjA6IiI7czo2OiJfbGltaXQiO3M6MzoiNTAwIjt9?contract-no=&stock-symbol=&buyer=&seller="
-        df = pd.read_html(url, header=1)
-        data = df[0]
-        data = data.iloc[:-3]
-        del data['S.N.']
-        del data['Contract No']
-        del data['Unnamed: 8']
-        del data['Unnamed: 9']
-        data.to_csv('csvFiles/floorsheet.csv')
-        result = []
-        tData = open('csvFiles/floorsheet.csv')
-        reader = csv.DictReader(tData)
-        for row in reader:
-            result.append(dict(row))
-        fieldnames = [key for key in result[0].keys()]
-
-        return render_template('index.html', result=result, fieldnames=fieldnames, len=len)
-
     if request.method == 'POST' and 'un' in request.form and 'ps' in request.form:
         un = request.form['un']
         ps = request.form['ps']
