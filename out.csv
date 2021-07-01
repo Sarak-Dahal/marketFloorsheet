@@ -1,0 +1,64 @@
+"                                                    0  ...              2
+0                                              Sector  ...            NaN
+1                                  Shares Outstanding  ...            NaN
+2                                        Market Price  ...            NaN
+3                                            % Change  ...            NaN
+4                                      Last Traded On  ...            NaN
+5                                 52 Weeks High - Low  ...            NaN
+6                                     120 Day Average  ...            NaN
+7                                        1 Year Yield  ...            NaN
+8                                                 EPS  ...            NaN
+9                                           P/E Ratio  ...            NaN
+10                                         Book Value  ...            NaN
+11                                                PBV  ...            NaN
+12                                         % Dividend  ...            NaN
+13  #  Fiscal Year  Value  2.  5.53%  (FY: 075-076...  ...            NaN
+14                                                  #  ...          Value
+15                                                 2.  ...  (FY: 075-076)
+16                                                 1.  ...  (FY: 076-077)
+17                                                 3.  ...  (FY: 073-074)
+18                                            % Bonus  ...            NaN
+19  #  Value  Fiscal Year  2.  5.00%  (FY: 075-076...  ...            NaN
+20                                                  #  ...    Fiscal Year
+21                                                 2.  ...  (FY: 075-076)
+22                                                 1.  ...  (FY: 076-077)
+23                                                 3.  ...  (FY: 074-075)
+24                                                 4.  ...  (FY: 073-074)
+25                                                 5.  ...  (FY: 072-073)
+26                                                 6.  ...  (FY: 071-072)
+27                                                 7.  ...  (FY: 068-069)
+28                                        Right Share  ...            NaN
+29  #  Value  Fiscal Year  1.  (FY: 074-075)  2.  ...  ...            NaN
+30                                                  #  ...    Fiscal Year
+31                                                 1.  ...  (FY: 074-075)
+32                                                 2.  ...  (FY: 072-073)
+33                                                 3.  ...  (FY: 070-071)
+34                                                 4.  ...  (FY: 068-069)
+35                                  30-Day Avg Volume  ...            NaN
+36                              Market Capitalization  ...            NaN
+
+[37 rows x 3 columns]"
+"     # Fiscal Year          Value
+0  2.0       5.53%  (FY: 075-076)
+1  1.0       0.00%  (FY: 076-077)
+2  3.0       0.63%  (FY: 073-074)"
+"     #   Value    Fiscal Year
+0  2.0   5.00%  (FY: 075-076)
+1  1.0   0.00%  (FY: 076-077)
+2  3.0  12.00%  (FY: 074-075)
+3  4.0  12.00%  (FY: 073-074)
+4  5.0  10.00%  (FY: 072-073)
+5  6.0   5.00%  (FY: 071-072)
+6  7.0  14.25%  (FY: 068-069)"
+"     # Value    Fiscal Year
+0  1.0   NaN  (FY: 074-075)
+1  2.0   NaN  (FY: 072-073)
+2  3.0   4:1  (FY: 070-071)
+3  4.0   NaN  (FY: 068-069)"
+"                    0                                     1
+0              Symbol                                 SLICL
+1        Company Name  Surya Life Insurance Company Limited
+2              Sector                        Life Insurance
+3       Listed Shares                           22628950.00
+4        Paidup Value                                100.00
+5  Total Paidup Value                         2262895000.00"
