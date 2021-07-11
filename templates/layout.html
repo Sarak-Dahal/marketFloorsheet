@@ -1,79 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
+<!Doctype HTML>
+<html>
    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-      <title>Admin Panel</title>
-      <!-- Bootstrap -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-         crossorigin="anonymous">
-      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+      <title></title>
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='userCss/style.css') }}">
-   </head>
-   <body>
-      <input type="checkbox" id="sidebar-toggle">
-      <div class="sidebar">
-         <div class="sidebar-header">
-            <h3 class="brand">
-               <span class="ti-stats-up"></span>
-               <span>Sarak Dahal</span>
-            </h3>
-            <label for="sidebar-toggle" class="ti-menu-alt"></label>
-         </div>
-         <div class="sidebar-menu">
-            <ul>
-               <li>
-                  <a href="http://127.0.0.1:5000/floorsheet">
-                  <span class="ti-home"></span>
-                  <span>Home</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="http://127.0.0.1:5000/floorsheet">
-                  <span class="ti-home"></span>
-                  <span>Floorsheet</span>
-                  </a>
-               </li>
-               <li>
-                  <a href="http://127.0.0.1:5000/floorsheet">
-                  <span class="ti-home"></span>
-                  <span>Broker Top Buy Sell</span>
-                  </a>
-               </li>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-               <li>
-                  <a href="http://127.0.0.1:5000/logout">
-                  <span class="ti-power-off"></span>
-                  <span>Log Out</span>
-                  </a>
-               </li>
-            </ul>
+   </head>
+
+   <body>
+      <div id="mySidenav" class="sidenav">
+         <p class="logo"><span><i class="fa fa-line-chart icons"></i></span> NepseGyan</p>
+         <a href="http://127.0.0.1:5000/home" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
+         <a href="http://127.0.0.1:5000/news" class="icon-a"><i class="fa fa-newspaper-o icons"></i> &nbsp;&nbsp;News</a>
+         <a href="http://127.0.0.1:5000/myPortfolio"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;My Portfolio</a>
+         <a href="http://127.0.0.1:5000/floorsheet"class="icon-a"><i class="fa fa-list icons"></i> &nbsp;&nbsp;Floorsheet</a>
+         <a href="http://127.0.0.1:5000/stockPrice"class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Stock Price</a>
+         <a href="http://127.0.0.1:5000/calculator"class="icon-a"><i class="fa fa-calculator icons"></i> &nbsp;&nbsp;Calculator</a>
+         <a href="http://127.0.0.1:5000/myAccount"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;My Account</a>
+         <a href="http://127.0.0.1:5000/logout"class="icon-a"><i class="fa fa-sign-out icons"></i> &nbsp;&nbsp;Logout</a>
+
+      </div>
+      <div id="main">
+      <div class="head" style="border-bottom:2px solid white;">
+         <div class="col-div-6">
+            <span style="font-size:30px;cursor:pointer; color: white;" class="nav"  >&#9776; {{ headerTitle }}</span>
+            <span style="font-size:30px;cursor:pointer; color: white;" class="nav2"  >&#9776; {{ headerTitle }}</span>
          </div>
+         <div class="col-div-6">
+            <div class="profile">
+               <img src="static/img_avatar.png" class="pro-img" />
+               <p>Sarak Dahal<span>Super Admin</span></p>
+            </div>
+         </div>
+         <div class="clearfix"></div>
       </div>
       {% block content %}
 
 
-
       {% endblock %}
+      </div>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>
+         $(".nav").click(function(){
+           $("#mySidenav").css('width','70px');
+           $("#main").css('margin-left','70px');
+           $('a.icon-a').css('padding','0px 0px 5px 32px');
+           $(".logo").css('visibility', 'hidden');
+           $(".logo span").css('visibility', 'visible');
+            $(".logo span").css('margin-left', '-10px');
+            $(".icon-a").css('visibility', 'hidden');
+            $(".icons").css('visibility', 'visible');
+            $(".icons").css('margin-left', '-8px');
+             $(".nav").css('display','none');
+             $(".nav2").css('display','block');
+         });
+
+         $(".nav2").click(function(){
+           $("#mySidenav").css('width','300px');
+           $("#main").css('margin-left','300px');
+           $('a.icon-a').css('padding','15px 8px 15px 32px');
+           $(".logo").css('visibility', 'visible');
+           $(".icon-a").css('visibility', 'visible');
+           $(".icons").css('visibility', 'visible');
+           $(".nav").css('display','block');
+           $(".nav2").css('display','none');
+         });
+
+      </script>
    </body>
-   <style>
-      a{
-      text-decoration:none !important;
-      }
-      a:hover{
-      color:black;
-      }
-      h3{
-      font-size: 1.2rem !important;
-      }
-      header h3{
-      color:var(--main-color);
-      }
-      h6{
-      float:right;
-      }
-   </style>
 </html>
+
+
 

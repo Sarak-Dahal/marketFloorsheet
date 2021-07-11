@@ -5,7 +5,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="wrapper fadeInDown">
+<div class="wrapper fadeInDown" style="background-color:#1b203d;">
   <div id="formContent">
     <!-- Tabs Titles -->
 
@@ -17,11 +17,9 @@
     <!-- Login Form -->
     <form action="/login" method="post">
       <input type="text" id="login" class="fadeIn second" name="un" placeholder="Login">
-      <input type="text" id="password" class="fadeIn third" name="ps" placeholder="Password">
+      <input type="password" id="password" class="fadeIn third" name="ps" placeholder="Password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
-
-
   </div>
 </div>
 
@@ -30,7 +28,7 @@
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  background-color: #272c4a;
 }
 
 body {
@@ -72,7 +70,7 @@ h2 {
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  background: #fff;
+  background: #272c4a;
   padding: 30px;
   width: 90%;
   max-width: 450px;
@@ -143,7 +141,7 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
+input[type=text],input[type=password] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;

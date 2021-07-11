@@ -1,0 +1,472 @@
+{% extends 'layout.html' %}
+{% block content %}
+<title>Floorsheet</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css"/>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+
+
+<!--Bootstrap-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+
+   <body>
+      <div class="main-content">
+         <header>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+               crossorigin="anonymous"></script>
+         </header>
+         <main>
+            <div class="index">
+               <div class="row">
+                 <div class="column">
+                    <div class="radius">
+                       <h3>NEPSE</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ nepseColor }}">{{ nepseIndexData }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ nepseColor }}">{{ nepsePC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ nepseColor }}">{{ nepsePerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Sensitive</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ sensColor }}">{{ sensitive }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ sensColor }}">{{ sensitivePC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ sensColor }}">{{ sensitivePerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Float</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ floatColor }}">{{ nepseFloat }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ floatColor }}">{{ nepseFloatPC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ floatColor }}">{{ nepseFloatPerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Sen. Float</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ floatSensColor }}">{{ senFloat }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ floatSensColor }}">{{ senFloatPC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ floatSensColor }}">{{ senFloatPerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Banking</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ bankColor }}">{{ bank }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ bankColor }}">{{ bankPC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ bankColor }}">{{ bankPerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>                    
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Trading</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ tradingColor }}">{{ trading }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ tradingColor }}">{{ tradingPC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ tradingColor }}">{{ tradingPerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Hotel and Tourism</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ hotelColor }}">{{ hotel }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ hotelColor }}">{{ hotelPC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ hotelColor }}">{{ hotelPerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Dev. Bank</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ devBankColor }}">{{ devBank }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ devBankColor }}">{{ devBankPC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ devBankColor }}">{{ devBankPerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Hydro</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ hydroColor }}">{{ hydro }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ hydroColor }}">{{ hydroPC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ hydroColor }}">{{ hydroPerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Finance</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ financeColor }}">{{ finance }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ financeColor }}">{{ financePC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ financeColor }}">{{ financePerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Life Insurance</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ lifeInsuranceColor }}">{{ lifeInsurance }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ lifeInsuranceColor }}">{{ lifeInsurancePC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ lifeInsuranceColor }}">{{ lifeInsurancePerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Non-Life Insurance</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ nonLifeInsuranceColor }}">{{ nonLifeInsurance }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ nonLifeInsuranceColor }}">{{ nonLifeInsurancePC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ nonLifeInsuranceColor }}">{{ nonLifeInsurancePerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Manu. & Prod.</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ manufactureColor }}">{{ manufacture }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ manufactureColor }}">{{ manufacturePC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ manufactureColor }}">{{ manufacturePerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Others</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ otherIndexColor }}">{{ otherIndex }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ otherIndexColor }}">{{ otherIndexPC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ otherIndexColor }}">{{ otherIndexPerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Microfinance</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ microfinanceColor }}">{{ microfinance }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ microfinanceColor }}">{{ microfinancePC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ microfinanceColor }}">{{ microfinancePerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="column">
+                    <div class="radius">
+                       <h3>Mutual Fund</h3>
+                       <div class="table-responsive">
+                          <table class="table">
+                             <tr>
+                                <th>Index</th>
+                                <th style="color:{{ mutualFundColor }}">{{ mutualFund }}</th>
+                             </tr>
+                             <tr>
+                                <th>Change</th>
+                                <th style="color:{{ mutualFundColor }}">{{ mutualFundPC }}</th>
+                             </tr>
+                             <tr>
+                                <th>Per. Change</th>
+                                <th style="color:{{ mutualFundColor }}">{{ mutualFundPerC }}%</th>
+                             </tr>
+                          </table>
+                       </div>
+                    </div>
+                 </div>
+               </div>
+            </div>
+
+
+
+            <!--Top Gainers and Top Losers-->
+            <div class="topGainLose" style="margin-top:2rem;">
+               <div class="left">
+                  <table class="table table-dark proxies">
+                     <thead>
+                        <h3 class="headColor">Top Gainers</h3>
+                        <tr>
+                           <th>Symbol</th>
+                           <th>LTP</th>
+                           <th>% Change</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% for row in gain %}
+                        <tr>
+                           {% for index in range(0, len(finalGain)) %}
+                           <td style="color:green">{{  row[finalGain[index]]  }}</td>
+                           {% endfor %}
+                        </tr>
+                        {% endfor %}
+                     </tbody>
+                  </table>
+               </div>
+               <div class="right">
+                  <table class="table table-dark proxies">
+                     <thead>
+                        <h3 class="headColor">Top Losers</h3>
+                        <tr>
+                           <th>Symbol</th>
+                           <th>LTP</th>
+                           <th>% Change</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% for row in lose %}
+                        <tr>
+                           {% for index in range(0, len(finalLose)) %}
+                           <td style="color:red">{{  row[finalLose[index]]  }}</td>
+                           {% endfor %}
+                        </tr>
+                        {% endfor %}
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+
+
+         </main>
+      </div>
+   </body>
+
+<style>
+.left{
+   width:49%;
+   float:left;
+   border: 1px solid grey;
+   }
+   .right{
+   width:49%;
+   float:right;
+   border: 1px solid grey;
+   }
+   .headColor{
+      color:white;
+   }
+   .column {
+  float: left;
+  width: 25%;
+}
+h2,h3{
+   color:white;
+   margin-left:1rem;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.radius{
+   border: 1px solid grey;
+   margin:1rem;
+
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+body{
+background-color: #1b203d !important;
+}
+
+</style>
+{% endblock %}
