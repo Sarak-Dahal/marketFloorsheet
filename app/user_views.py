@@ -280,35 +280,57 @@ def home():
 
 @app.route('/news')
 def news():
-    headerTitle = 'Stock News - Comming Soon...'
-
-    return render_template('news.html', headerTitle=headerTitle)
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        headerTitle = 'Stock News - Comming Soon...'
+        return render_template('news.html', headerTitle=headerTitle)
 
 
 @app.route('/myPortfolio')
 def marketDepth():
-    headerTitle = 'My Portfolio'
-
-
-    return render_template('myPortfolio.html', headerTitle=headerTitle)
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        headerTitle = 'My Portfolio'
+        return render_template('myPortfolio.html', headerTitle=headerTitle)
 
 
 @app.route('/stockPrice')
 def stockPrice():
-    headerTitle = 'Stock Price'
-    return render_template('stockPrice.html', headerTitle=headerTitle)
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        headerTitle = 'Stock Price'
+        return render_template('stockPrice.html', headerTitle=headerTitle)
 
 
 @app.route('/calculator')
 def calculator():
-    headerTitle = 'Calculator'
-    return render_template('calculator.html', headerTitle=headerTitle)
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        headerTitle = 'Calculator'
+        return render_template('calculator.html', headerTitle=headerTitle)
 
 
 @app.route('/myAccount')
 def myAccount():
-    headerTitle = 'My Account'
-    return render_template('myAccount.html', headerTitle=headerTitle)
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        headerTitle = 'My Account'
+        return render_template('myAccount.html', headerTitle=headerTitle)
 
 
 
