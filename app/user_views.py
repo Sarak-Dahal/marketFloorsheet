@@ -343,7 +343,7 @@ def login():
         if (un == "sarak" and ps == "sarak@45"):
             session['loggedin'] = True
             session['id'] = un
-            return redirect('home')
+            return redirect('floorsheet')
         else:
             msg = "Enter Correct Username or Password"
             return render_template('login.html', msg=msg)
