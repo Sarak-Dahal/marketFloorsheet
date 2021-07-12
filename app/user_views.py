@@ -22,8 +22,8 @@ def home():
 
         df = pd.read_html('http://www.nepalstock.com/')
         marketStatus = df[8]
-        nepseIndex = df[9]
-        otherIndex = df[10]
+        nepseIndex = df[13]
+        otherIndex = df[14]
 
         marketStatus.to_csv('csvFiles/marketStatus.csv', header=True, index=False)
         del nepseIndex['Unnamed: 4']
@@ -86,9 +86,9 @@ def home():
         bank = other[0][1]
         bankPC = other[0][2]
         bankPerC = other[0][3]
-        if bankPerC > 0.00:
+        if bankPC > 0.00:
             bankColor = 'green'
-        elif bankPerC == 0.00:
+        elif bankPC == 0.00:
             bankColor = 'blue'
         else:
             bankColor = 'red'
@@ -97,9 +97,9 @@ def home():
         trading = other[1][1]
         tradingPC = other[1][2]
         tradingPerC = other[1][3]
-        if tradingPerC > 0.00:
+        if tradingPC > 0.00:
             tradingColor = 'green'
-        elif tradingPerC == 0.00:
+        elif tradingPC == 0.00:
             tradingColor = 'blue'
         else:
             tradingColor = 'red'
@@ -109,9 +109,9 @@ def home():
         hotel = other[2][1]
         hotelPC = other[2][2]
         hotelPerC = other[2][3]
-        if hotelPerC > 0.00:
+        if hotelPC > 0.00:
             hotelColor = 'green'
-        elif hotelPerC == 0.00:
+        elif hotelPC == 0.00:
             hotelColor = 'blue'
         else:
             hotelColor = 'red'
@@ -121,9 +121,9 @@ def home():
         devBank = other[3][1]
         devBankPC = other[3][2]
         devBankPerC = other[3][3]
-        if devBankPerC > 0.00:
+        if devBankPC > 0.00:
             devBankColor = 'green'
-        elif devBankPerC == 0.00:
+        elif devBankPC == 0.00:
             devBankColor = 'blue'
         else:
             devBankColor = 'red'
@@ -133,9 +133,9 @@ def home():
         hydro = other[4][1]
         hydroPC = other[4][2]
         hydroPerC = other[4][3]
-        if hydroPerC > 0.00:
+        if hydroPC > 0.00:
             hydroColor = 'green'
-        elif hydroPerC == 0.00:
+        elif hydroPC == 0.00:
             hydroColor = 'blue'
         else:
             hydroColor = 'red'
@@ -145,9 +145,9 @@ def home():
         finance = other[5][1]
         financePC = other[5][2]
         financePerC = other[5][3]
-        if financePerC > 0.00:
+        if financePC > 0.00:
             financeColor = 'green'
-        elif financePerC == 0.00:
+        elif financePC == 0.00:
             financeColor = 'blue'
         else:
             financeColor = 'red'
@@ -157,9 +157,9 @@ def home():
         lifeInsurance = other[10][1]
         lifeInsurancePC = other[10][2]
         lifeInsurancePerC = other[10][3]
-        if lifeInsurancePerC > 0.00:
+        if lifeInsurancePC > 0.00:
             lifeInsuranceColor = 'green'
-        elif lifeInsurancePerC == 0.00:
+        elif lifeInsurancePC == 0.00:
             lifeInsuranceColor = 'blue'
         else:
             lifeInsuranceColor = 'red'
@@ -169,9 +169,9 @@ def home():
         nonLifeInsurance = other[6][1]
         nonLifeInsurancePC = other[6][2]
         nonLifeInsurancePerC = other[6][3]
-        if nonLifeInsurancePerC > 0.00:
+        if nonLifeInsurancePC > 0.00:
             nonLifeInsuranceColor = 'green'
-        elif nonLifeInsurancePerC == 0.00:
+        elif nonLifeInsurancePC == 0.00:
             nonLifeInsuranceColor = 'blue'
         else:
             nonLifeInsuranceColor = 'red'
@@ -182,9 +182,9 @@ def home():
         manufacture = other[7][1]
         manufacturePC = other[7][2]
         manufacturePerC = other[7][3]
-        if manufacturePerC > 0.00:
+        if manufacturePC > 0.00:
             manufactureColor = 'green'
-        elif manufacturePerC == 0.00:
+        elif manufacturePC == 0.00:
             manufactureColor = 'blue'
         else:
             manufactureColor = 'red'
@@ -194,9 +194,9 @@ def home():
         otherIndex = other[8][1]
         otherIndexPC = other[7][1]
         otherIndexPerC = other[8][3]
-        if otherIndexPerC > 0.00:
+        if otherIndexPC > 0.00:
             otherIndexColor = 'green'
-        elif otherIndexPerC == 0.00:
+        elif otherIndexPC == 0.00:
             otherIndexColor = 'blue'
         else:
             otherIndexColor = 'red'
@@ -206,9 +206,9 @@ def home():
         microfinance = other[9][1]
         microfinancePC = other[9][2]
         microfinancePerC = other[9][3]
-        if microfinancePerC > 0.00:
+        if microfinancePC > 0.00:
             microfinanceColor = 'green'
-        elif microfinancePerC == 0.00:
+        elif microfinancePC == 0.00:
             microfinanceColor = 'blue'
         else:
             microfinanceColor = 'red'
@@ -218,9 +218,9 @@ def home():
         mutualFund = other[11][1]
         mutualFundPC = other[11][2]
         mutualFundPerC = other[11][3]
-        if mutualFundPerC > 0.00:
+        if mutualFundPC > 0.00:
             mutualFundColor = 'green'
-        elif mutualFundPerC == 0.00:
+        elif mutualFundPC == 0.00:
             mutualFundColor = 'blue'
         else:
             mutualFundColor = 'red'
@@ -343,7 +343,7 @@ def login():
         if (un == "sarak" and ps == "sarak@45"):
             session['loggedin'] = True
             session['id'] = un
-            return redirect('floorsheet')
+            return redirect('home')
         else:
             msg = "Enter Correct Username or Password"
             return render_template('login.html', msg=msg)
