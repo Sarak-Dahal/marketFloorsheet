@@ -12,9 +12,18 @@ global session
 def start():
     return render_template('login.html')
 
-
 @app.route('/home')
 def home():
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        return render_template('news.html')
+
+
+@app.route('/home1')
+def home1():
     if session['loggedin'] == False:
         msg = "You Must Login to access the Page"
         color = 'red'
