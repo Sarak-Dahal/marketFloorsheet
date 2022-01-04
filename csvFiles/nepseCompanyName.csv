@@ -1,0 +1,201 @@
+﻿S.N,Stock Name,Stock Symbol,Sector
+1,Agriculture Development Bank Limited,ADBL,Commercial Banks
+2,Bank of Kathmandu Ltd.,BOKL,Commercial Banks
+3,Century Commercial Bank Ltd.,CCBL,Commercial Banks
+4,Citizen Bank International Limited,CZBIL,Commercial Banks
+5,Civil Bank Ltd,CBL,Commercial Banks
+6,Everest Bank Limited,EBL,Commercial Banks
+7,Global IME Bank Limited,GBIME,Commercial Banks
+8,Himalayan Bank Limited,HBL,Commercial Banks
+9,Janata Bank Nepal Ltd.,JBNL,Commercial Banks
+10,Kumari Bank Limited,KBL,Commercial Banks
+11,Laxmi Bank Limited,LBL,Commercial Banks
+12,Machhapuchhre Bank Limited,MBL,Commercial Banks
+13,Mega Bank Nepal Ltd.,MEGA,Commercial Banks
+14,Nabil Bank Limited,NABIL,Commercial Banks
+15,Nepal Bangladesh Bank Limited,NBB,Commercial Banks
+16,Nepal Bank Limited,NBL,Commercial Banks
+17,Nepal Credit And Commercial Bank Limited,NCCB,Commercial Banks
+18,Nepal Investment Bank Limited,NIB,Commercial Banks
+19,Nepal SBI Bank Limited,SBI,Commercial Banks
+20,NIC Asia Bank Ltd.,NICA,Commercial Banks
+21,NMB Bank Limited,NMB,Commercial Banks
+22,Prabhu Bank Limited,PRVU,Commercial Banks
+23,Prime Commercial Bank Ltd.,PCBL,Commercial Banks
+24,Sanima Bank Limited,SANIMA,Commercial Banks
+25,Siddhartha Bank Limited,SBL,Commercial Banks
+26,Standard Chartered Bank Limited,SCB,Commercial Banks
+27,Sunrise Bank Limited,SRBL,Commercial Banks
+28,Corporate Development Bank Limited,CORBL,Development Banks
+29,Excel Development Bank Ltd.,EDBL,Development Banks
+30,Garima Bikas Bank Limited,GBBL,Development Banks
+31,Green Development Bank Ltd.,GRDBL,Development Banks
+32,Jyoti Bikas Bank Limited,JBBL,Development Banks
+33,Kamana Sewa Bikas Bank Limited,KSBBL,Development Banks
+34,Karnali Development Bank Limited,KRBL,Development Banks
+35,Lumbini Bikas Bank Ltd.,LBBL,Development Banks
+36,Mahalaxmi Bikas Bank Ltd.,MLBL,Development Banks
+37,Miteri Development Bank Limited,MDB,Development Banks
+38,Muktinath Bikas Bank Ltd.,MNBBL,Development Banks
+39,Narayani Development Bank Limited,NABBC,Development Banks
+40,Saptakoshi Development Bank Ltd,SAPDBL,Development Banks
+41,Shangrila Development Bank Ltd.,SADBL,Development Banks
+42,Shine Resunga Development Bank Ltd.,SHINE,Development Banks
+43,Sindhu Bikash Bank Ltd,SINDU,Development Banks
+44,Best Finance Company Ltd.,BFC,Finance
+45,Central Finance Co. Ltd.,CFCL,Finance
+46,Goodwill Finance Co. Ltd.,GFCL,Finance
+47,Guheshowori Merchant Bank & Finance Co. Ltd.,GMFIL,Finance
+48,Gurkhas Finance Ltd.,GUFL,Finance
+49,ICFC Finance Limited,ICFC,Finance
+50,Janaki Finance Ltd.,JFL,Finance
+51,Manjushree Finance Ltd.,MFIL,Finance
+52,Multipurpose Finance Company Limited,MPFL,Finance
+53,Nepal Finance Ltd.,NFS,Finance
+54,Pokhara Finance Ltd.,PFL,Finance
+55,ProgressiveFinance Limited,PROFL,Finance
+56,Reliance Finance Ltd.,RLFL,Finance
+57,Samriddhi Finance Company Limited,SFCL,Finance
+58,Shree Investment Finance Co. Ltd.,SIFC,Finance
+59,Chandragiri Hills Limited,CGH,Hotels
+60,Oriental Hotels Limited,OHL,Hotels
+61,Soaltee Hotel Limited,SHL,Hotels
+62,Taragaon Regency Hotel Limited,TRH,Hotels
+63,Ankhu Khola Jalvidhyut Company Ltd,AKJCL,Hydro Power
+64,Api Power Company Ltd.,API,Hydro Power
+65,Arun Kabeli Power Ltd.,AKPL,Hydro Power
+66,Arun Valley Hydropower Development Co. Ltd.,AHPC,Hydro Power
+67,Barun Hydropower Co. Ltd.,BARUN,Hydro Power
+68,Butwal Power Company Limited,BPCL,Hydro Power
+69,Chhyangdi Hydropower Ltd.,CHL,Hydro Power
+70,Chilime Hydropower Company Limited,CHCL,Hydro Power
+71,Dibyashwori Hydropower Ltd.,DHPL,Hydro Power
+72,Ghalemdi Hydro Limited,GHL,Hydro Power
+73,GreenLife Hydropower Limited,GLH,Hydro Power
+74,Himal Dolakha Hydropower Company Limited,HDHPC,Hydro Power
+75,Himalaya Urja Bikas Company Limited,HURJA,Hydro Power
+76,Himalayan Power Partner Ltd.,HPPL,Hydro Power
+77,Joshi Hydropower Development Company Ltd,JOSHI,Hydro Power
+78,Kalika power Company Ltd,KPCL,Hydro Power
+79,Khanikhola Hydropower Co. Ltd.,KKHC,Hydro Power
+80,Liberty Energy Company Limited,LEC,Hydro Power
+81,Mailung Khola Jal Vidhyut Company Limited,MKJC,Hydro Power
+82,Mountain Energy Nepal Limited,MEN,Hydro Power
+83,Mountain Hydro Nepal Limited,MHNL,Hydro Power
+84,National Hydro Power Company Limited,NHPC,Hydro Power
+85,Nepal Hydro Developers Ltd.,NHDL,Hydro Power
+86,Ngadi Group Power Ltd.,NGPL,Hydro Power
+87,Nyadi Hydropower Limited,NYADI,Hydro Power
+88,Panchakanya Mai Hydropower Ltd,PMHPL,Hydro Power
+89,Panchthar Power Compant Limited,PPCL,Hydro Power
+90,Radhi Bidyut Company Ltd,RADHI,Hydro Power
+91,Rairang Hydropower Development Company Ltd.,RRHP,Hydro Power
+92,RASUWAGADHI HYDROPOWER COMPANY LIMITED,RHPL,Hydro Power
+93,Ridi Hydropower Development Company Ltd.,RHPC,Hydro Power
+94,Ru Ru Jalbidhyut Pariyojana Limited,RURU,Hydro Power
+95,Sahas Urja Limited,SAHAS,Hydro Power
+96,Samling Power Company Limited,SPC,Hydro Power
+97,Sanima Mai Hydropower Ltd.,SHPC,Hydro Power
+98,SANJEN JALAVIDHYUT COMPANY LIMITED,SJCL,Hydro Power
+99,Shiva Shree Hydropower Ltd,SSHL,Hydro Power
+100,Singati Hydro Energy Limited,SHEL,Hydro Power
+101,Synergy Power Development Ltd.,SPDL,Hydro Power
+102,Terhathum Power Company Limited,TPC,Hydro Power
+103,Union Hydropower Limited,UNHPL,Hydro Power
+104,United IDI Mardi RB Hydropower Limited.,UMRH,Hydro Power
+105,United Modi Hydropower Ltd.,UMHL,Hydro Power
+106,UNIVERSAL POWER COMPANY LTD,UPCL,Hydro Power
+107,Upper Tamakoshi Hydropower Ltd,UPPER,Hydro Power
+108,CEDB Hydropower Development Company Limited,CHDC,Investment
+109,Citizen Investment Trust,CIT,Investment
+110,Hydorelectricity Investment and Development Company Ltd,HIDCL,Investment
+111,Nepal Infrastructure Bank Limited,NIFRA,Investment
+112,NRN Infrastructure and Development Limited,NRN,Investment
+113,Asian Life Insurance Co. Limited,ALICL,Life Insurance
+114,Gurans Life Insurance Company Ltd.,GLICL,Life Insurance
+115,Jyoti Life Insurance Ltd,JLI,Life Insurance
+116,Life Insurance Co. Nepal,LICN,Life Insurance
+117,National Life Insurance Co. Ltd.,NLICL,Life Insurance
+118,Nepal Life Insurance Co. Ltd.,NLIC,Life Insurance
+119,Prabhu Life Insurance Limited,PLI,Life Insurance
+120,Prime Life Insurance Company Limited,PLIC,Life Insurance
+121,Reliance Life Insurance Limited,RLI,Life Insurance
+122,Sanima Life Insurance Limited,SLI,Life Insurance
+123,Surya Life Insurance Company Limited,SLICL,Life Insurance
+124,Union Life Insurance Company Limited,ULI,Life Insurance
+125,Bottlers Nepal (Balaju) Limited,BNL,Manufacturing And Processing
+126,Bottlers Nepal (Terai) Limited,BNT,Manufacturing And Processing
+127,Himalayan Distillery Limited,HDL,Manufacturing And Processing
+128,Nepal Lube Oil Limited,NLO,Manufacturing And Processing
+129,SHIVAM CEMENTS LTD,SHIVM,Manufacturing And Processing
+130,Unilever Nepal Limited,UNL,Manufacturing And Processing
+131,Aarambha Chautari Laghubitta Bittiya Sanstha Limited,ACLBSL,Microfinance
+132,Asha Laghubitta Bittiya Sanstha Ltd,ALBSL,Microfinance
+133,Chhimek Laghubitta Bikas Bank Limited,CBBL,Microfinance
+134,Civil Laghubitta Bittiya Sanstha Ltd.,CLBSL,Microfinance
+135,Deprosc Laghubitta Bittiya Sanstha Limited,DDBL,Microfinance
+136,First Micro Finance Development Bank Ltd.,FMDBL,Microfinance
+137,Forward Community Microfinance Bittiya Sanstha Ltd.,FOWAD,Microfinance
+138,Ganapati Laghubitta Bittiya Sanstha Limited,GMFBS,Microfinance
+139,Global IME Laghubitta Bittiya Sanstha Ltd.,GILB,Microfinance
+140,Grameen Bikas Laghubitta Bittiya Sanstha Ltd.,GBLBS,Microfinance
+141,Gurans Laghubitta Bittiya Sanstha Limited,GLBSL,Microfinance
+142,Infinity Laghubitta Bittiya Sanstha Limited,ILBS,Microfinance
+143,Janautthan Samudayic Laghubitta Bikas Bank Ltd.,JSLBB,Microfinance
+144,Jeevan Bikas laghubitta bittya sanstha ltd,JBLB,Microfinance
+145,Kalika Microcredit Development Bank Ltd.,KMCDB,Microfinance
+146,Kisan Lagubitta Bittiya Sanstha Limited,KLBSL,Microfinance
+147,Laxmi Laghubitta Bittiya Sanstha Ltd.,LLBS,Microfinance
+148,Mahila Lagubitta Bittiya Sanstha Limited,MLBSL,Microfinance
+149,Mahuli Samudayik Laghubitta Bittiya Sanstha Ltd.,MSLB,Microfinance
+150,Manakamana Smart Laghubitta Bittiya Sanstha Limited,MKLB,Microfinance
+151,Manushi Laghubitta Bittiya Sanstha Limited,MLBS,Microfinance
+152,Mero Microfinance Bittiya Sanstha Ltd.,MERO,Microfinance
+153,Mirmire Microfinance Development Bank Ltd.,MMFDB,Microfinance
+154,Mithila LaghuBitta Bittiya Sanstha Limited,MLBBL,Microfinance
+155,National Microfinance Bittiya Sanstha Ltd.,NMFBS,Microfinance
+156,Naya Sarathi Laghubitta Bittiya Sanstha Limited,NSLB,Microfinance
+157,Nerude Laghubita Bikas Bank Limited,NLBBL,Microfinance
+158,NIC ASIA Laghubitta Bittiya Sanstha Limited,NICLBSL,Microfinance
+159,Nirdhan Utthan Laghubitta Bittiya Sanstha Limited,NUBL,Microfinance
+160,NMB Microfinance Bittiya Sanstha Ltd.,NMBMF,Microfinance
+161,RMDC Laghubitta Bittiya Sanstha Ltd.,RMDC,Microfinance
+162,RSDC Laghubitta Bittiya Sanstha Ltd.,RSDC,Microfinance
+163,SABAIKO LAGHUBITTA BITTIYA SANSTHA LIMITED,SABSL,Microfinance
+164,Sadhana Laghubitta Bittiya Sanstha Limited,SDLBSL,Microfinance
+165,Samaj Laghubittya Bittiya Sanstha Limited,SAMAJ,Microfinance
+166,Samata Gharelu Laghubitta Bittiya Sanstha Limited,SMATA,Microfinance
+167,Samudayik Laghubitta Bittiya Sanstha Limited,SLBSL,Microfinance
+168,Sana Kisan Bikas Bank Ltd,SKBBL,Microfinance
+169,Sparsha Laghubitta Bittiya Sanstha Limited,SPARS,Microfinance
+170,Summit Laghubitta Bittiya Sanstha Limited,SMFDB,Microfinance
+171,Support Microfinance Bittiya Sanstha Ltd.,SMB,Microfinance
+172,Suryodaya Laghubitta Bittiya Sanstha Ltd.,SLBS,Microfinance
+173,Swabalamban Laghubitta Bittiya Sanstha Limited,SWBBL,Microfinance
+174,Swabhimaan Laghubitta Bittiya Sanstha Limited,SMFBS,Microfinance
+175,Swarojgar Laghu Bitta Bikas Bank Ltd.,SLBBL,Microfinance
+176,Unnati Sahakarya Laghubitta Bittiya Sanstha Limited,USLB,Microfinance
+177,Vijaya laghubitta Bittiya Sanstha Ltd.,VLBS,Microfinance
+178,Womi Microfinance Bittiya Sanstha Ltd.,WOMI,Microfinance
+179,Ajod Insurance Limited,AIL,Non Life Insurance
+180,Everest Insurance Co. Ltd.,EIC,Non Life Insurance
+181,General Insurance Company Nepal Ltd,GIC,Non Life Insurance
+182,Himalayan General Insurance Co. Ltd,HGI,Non Life Insurance
+183,IME General Insurance Ltd.,IGI,Non Life Insurance
+184,Lumbini General Insurance Co. Ltd.,LGIL,Non Life Insurance
+185,Neco Insurance Co. Ltd.,NIL,Non Life Insurance
+186,Nepal Insurance Co. Ltd.,NICL,Non Life Insurance
+187,NLG Insurance Company Ltd.,NLG,Non Life Insurance
+188,Prabhu Insurance Ltd.,PRIN,Non Life Insurance
+189,Premier Insurance Co. Ltd.,PIC,Non Life Insurance
+190,Prudential Insurance Co. Ltd.,PICL,Non Life Insurance
+191,Rastriya Beema Company Limited,RBCL,Non Life Insurance
+192,Sagarmatha Insurance Co. Ltd.,SIC,Non Life Insurance
+193,Sanima General Insurance Limited,SGI,Non Life Insurance
+194,Shikhar Insurance Co. Ltd.,SICL,Non Life Insurance
+195,Siddhartha Insurance Ltd.,SIL,Non Life Insurance
+196,United Insurance Co. (Nepal) Ltd.,UIC,Non Life Insurance
+197,Nepal Doorsanchar Comapany Limited,NTC,Others
+198,Nepal Reinsurance Company Limited,NRIC,Others
+199,Bishal Bazar Company Limited,BBC,Tradings
+200,Salt Trading Corporation,STC,Tradings
