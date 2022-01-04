@@ -5,7 +5,18 @@
       <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='userCss/style.css') }}">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+   <link rel="stylesheet" href="http://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"</script>
+      <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+      <script>
+$(document).ready(function(){
+$('#datatable').DataTable();
+});
+</script>
    </head>
 
    <body>
@@ -23,14 +34,15 @@
          <a href="127.0.0.1:5000/logout"class="icon-a"><i class="fa fa-sign-out icons"></i> &nbsp;&nbsp;Logout</a>
          -->
 
-         <a href="https://damp-anchorage-58008.herokuapp.com/home" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
-         <a href="https://damp-anchorage-58008.herokuapp.com/news" class="icon-a"><i class="fa fa-newspaper-o icons"></i> &nbsp;&nbsp;News</a>
-         <a href="https://damp-anchorage-58008.herokuapp.com/myPortfolio"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;My Portfolio</a>
-         <a href="https://damp-anchorage-58008.herokuapp.com/floorsheet"class="icon-a"><i class="fa fa-list icons"></i> &nbsp;&nbsp;Floorsheet</a>
-         <a href="https://damp-anchorage-58008.herokuapp.com/stockPrice"class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Stock Price</a>
-         <a href="https://damp-anchorage-58008.herokuapp.com/calculator"class="icon-a"><i class="fa fa-calculator icons"></i> &nbsp;&nbsp;Calculator</a>
-         <a href="https://damp-anchorage-58008.herokuapp.com/myAccount"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;My Account</a>
-         <a href="https://damp-anchorage-58008.herokuapp.com/logout"class="icon-a"><i class="fa fa-sign-out icons"></i> &nbsp;&nbsp;Logout</a>
+         <a href="http://127.0.0.1:5000/home" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
+         <a href="http://127.0.0.1:5000/rsi" class="icon-a"><i class="fa fa-signal icons"></i> &nbsp;&nbsp;RSI</a>
+         <a href="http://127.0.0.1:5000/news" class="icon-a"><i class="fa fa-newspaper-o icons"></i> &nbsp;&nbsp;News</a>
+         <a href="http://127.0.0.1:5000/myPortfolio"class="icon-a"><i class="fa fa-users icons"></i> &nbsp;&nbsp;My Portfolio</a>
+         <a href="http://127.0.0.1:5000/floorsheet"class="icon-a"><i class="fa fa-list icons"></i> &nbsp;&nbsp;Floorsheet</a>
+         <a href="http://127.0.0.1:5000/stockPrice"class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Stock Price</a>
+         <a href="http://127.0.0.1:5000/calculator"class="icon-a"><i class="fa fa-calculator icons"></i> &nbsp;&nbsp;Calculator</a>
+         <a href="http://127.0.0.1:5000/myAccount"class="icon-a"><i class="fa fa-user icons"></i> &nbsp;&nbsp;My Account</a>
+         <a href="http://127.0.0.1:5000/logout"class="icon-a"><i class="fa fa-sign-out icons"></i> &nbsp;&nbsp;Logout</a>
 
       </div>
       <div id="main">
@@ -80,6 +92,120 @@
            $(".nav2").css('display','none');
          });
 
+      </script>
+
+      <script>
+         $(document).ready(function() {
+    $("#sector").select2({
+        width: "100%"
+    });
+    $("#indicator").select2({
+        width: "100%"
+    });
+    $("#criteria").select2({
+        width: "100%"
+    });
+    $("#techIndicator").DataTable({
+        lengthMenu: [10, 25, 50, 100]
+    });
+});
+
+$(document)
+    .on(
+        "change",
+        "#indicator",
+        function() {
+            var indic = $("#indicator").val();
+            if (indic == "EMA") {
+                $("#criteria")
+                    .html(
+                        '<option value="">--- Choose Criteria ---</option>' +
+                        '<option value="GOLDEN">Golden Crossover</option>' +
+                        '<option value="DEAD">Dead Crossover</option>' +
+                        '<option value="LTPBEMA5">LTP < 5 Days EMA</option>' +
+                        '<option value="LTPAEMA5">LTP > 5 Days EMA</option>' +
+                        '<option value="LTPBEMA20">LTP < 20 Days EMA</option>' +
+                        '<option value="LTPAEMA20">LTP > 20 Days EMA</option>' +
+                        '<option value="LTPBEMA45">LTP < 45 Days EMA</option>' +
+                        '<option value="LTPAEMA45">LTP > 45 Days EMA</option>' +
+                        '<option value="LTPBEMA180">LTP < 180 Days EMA</option>' +
+                        '<option value="LTPAEMA180">LTP > 180 Days EMA</option>');
+            } else if (indic == "RSI") {
+                $("#criteria")
+                    .html(
+                        '<option value="">--- Choose Criteria ---</option>' +
+                        '<option value="RSIB30">RSI < 30</option>' +
+                        '<option value="RSIA70">RSI > 70</option>');
+            } else if (indic == "MACD") {
+                $("#criteria")
+                    .html(
+                        '<option value="">--- Choose Criteria ---</option>' +
+                        '<option value="MACDB0">MACD < 0</option>' +
+                        '<option value="MACDA0">MACD > 0</option>');
+            } else if (indic == "SMA") {
+                $("#criteria")
+                    .html(
+                        '<option value="">--- Choose Criteria ---</option>' +
+                        '<option value="LTPBSMA5">LTP < 5 Days SMA</option>' +
+                        '<option value="LTPASMA5">LTP > 5 Days SMA</option>' +
+                        '<option value="LTPBSMA20">LTP < 20 Days SMA</option>' +
+                        '<option value="LTPASMA20">LTP > 20 Days SMA</option>' +
+                        '<option value="LTPBSMA45">LTP < 45 Days SMA</option>' +
+                        '<option value="LTPASMA45">LTP > 45 Days SMA</option>' +
+                        '<option value="LTPBSMA180">LTP < 180 Days SMA</option>' +
+                        '<option value="LTPASMA180">LTP > 180 Days SMA</option>');
+            } else {
+                $("#criteria")
+                    .html(
+                        '<option value="">--- Choose Criteria ---</option>');
+            }
+
+        });
+
+$(document)
+    .on(
+        "click",
+        "#clickMeId",
+        function() {
+            var sector = $("#sector").val();
+            var indicator = $("#indicator").val();
+            var criteria = $("#criteria").val();
+            if (sector == "" || indicator == "" || criteria == "") {
+                alert("Please enter valid data/s.");
+            } else {
+                $(".tableWrapper").html($("#loaderImage").html());
+                $(".tableWrapper").css("text-align", "center");
+                var url = $("#technicalDashboardUrl").text();
+                $
+                    .ajax({
+                        url: url,
+                        type: "GET",
+                        data: {
+                            sector: sector,
+                            indicator: indicator,
+                            criteria: criteria
+                        },
+                        success: function(result) {
+                            $(".tableWrapper").removeAttr("style");
+                            $(".tableWrapper").html(result);
+                            $("#techIndicator").DataTable({
+                                lengthMenu: [10, 25, 50, 100]
+                            });
+                        },
+                        error: function(xhr, textStatus,
+                            errorThrown) {
+                            if (xhr.status == 403 ||
+                                textStatus == 'parsererror' &&
+                                xhr.responseText
+                                .match('rememberMe').length > 0) {
+                                location.reload();
+                            }
+                            $(".tableWrapper").removeAttr("style");
+                            $(".tableWrapper").html("");
+                        }
+                    });
+            }
+        });
       </script>
    </body>
 </html>

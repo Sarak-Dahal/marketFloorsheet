@@ -2,6 +2,8 @@ from flask import render_template, request, session, redirect
 import pandas as pd
 from app import app
 import csv
+import sqlite3
+
 
 global session
 
@@ -26,10 +28,7 @@ def home():
         otherIndex = df[14]
 
         marketStatus.to_csv('csvFiles/marketStatus.csv', header=True, index=False)
-        del nepseIndex['Unnamed: 4']
-        del nepseIndex['Unnamed: 5']
         nepseIndex.to_csv('csvFiles/nepseIndex.csv', header=True, index=False)
-        del otherIndex['Unnamed: 4']
         otherIndex.to_csv('csvFiles/otherIndex.csv', header=True, index=False)
 
         nepseData = pd.read_csv('csvFiles/nepseIndex.csv')
@@ -40,8 +39,8 @@ def home():
 
         # NEPSE Index
         nepseIndexData = nepse[0][1]
-        nepsePC = nepse[0][2]
-        nepsePerC = nepse[0][3]
+        nepsePC = 0
+        nepsePerC = 0
         if nepsePC > 0.00:
             nepseColor = 'green'
         elif nepsePC == 0.00:
@@ -276,6 +275,79 @@ def home():
                                microfinance = microfinance, microfinancePC = microfinancePC, microfinancePerC = microfinancePerC, microfinanceColor = microfinanceColor,
                                mutualFund = mutualFund, mutualFundPC = mutualFundPC, mutualFundPerC = mutualFundPerC, mutualFundColor = mutualFundColor)
 
+
+TABLE_TEMPLATE = """
+<style>
+   table, th, td {
+   border: 1px solid black;
+   }
+</style>
+<table style="width: 100%">
+   <thead>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Sector</th>
+      <th>RSI</th>
+   </thead>
+   <tbody>
+      {% for row in data %}
+      <tr>
+         <td>{{ row.name }}</td>
+         <td>{{ row.code }}</td>
+         <td>{{ row.sector }}</td>
+         <td>{{ row.rsi }}</td>
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+"""
+
+import os.path
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+csv_path = os.path.join(BASE_DIR,'bingo.csv')
+@app.route('/rsi')
+def rsi():
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        headerTitle = 'Technical Analysis'
+        sql_query = """ SELECT * FROM companyRsi where rsiValue = 3000"""
+        cursor.execute(sql_query)
+        data = cursor.fetchall()
+        msg=""
+        return render_template('rsi.html', headerTitle=headerTitle, data=data,msg=msg)
+
+db_path = os.path.join(BASE_DIR, "company.sqlite")
+conn = sqlite3.connect(db_path, check_same_thread=False)
+cursor = conn.cursor()
+
+@app.route('/rsi', methods=['GET', 'POST'])
+def RSIcalc():
+    sector= request.form.get('sector')
+    indicator = request.form.get('indicator')
+    criteria = request.form.get('criteria')
+
+    if (sector == '0' and indicator == 'RSI' and criteria == 'RSIB30'):
+        sql_query = """ SELECT * FROM companyRsi where rsiValue < 30 """
+        cursor.execute(sql_query)
+        data = cursor.fetchall()
+    elif (sector == '0' and indicator == 'RSI' and criteria == 'RSIA70'):
+        sql_query = """ SELECT * FROM companyRsi where rsiValue > 70 """
+        cursor.execute(sql_query)
+        data = cursor.fetchall()
+    elif (sector != '0' and indicator == 'RSI' and criteria == 'RSIB30'):
+        cursor.execute(" SELECT * FROM companyRsi where rsiValue < 30 and companySector LIKE '%s'"% sector)
+        data = cursor.fetchall()
+    elif (sector != '0' and indicator == 'RSI' and criteria == 'RSIA70'):
+        cursor.execute(" SELECT * FROM companyRsi where rsiValue > 70 and companySector LIKE '%s'" % sector)
+        data = cursor.fetchall()
+    else:
+        msg="Please enter correct details !s"
+        return render_template('rsi.html',msg=msg)
+
+    return render_template('rsi.html',data=data)
 
 
 @app.route('/news')

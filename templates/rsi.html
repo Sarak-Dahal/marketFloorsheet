@@ -1,0 +1,167 @@
+{% extends 'layout.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css"/>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+<body style="background-color: #1b203d !important; color:white;">
+   <div class="main-content">
+      <header>
+         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+         <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+      </header>
+      <br><br>
+       <h3 style="color:red;text-align:center;">{{ msg }}</h3>
+      <main>
+         <form action="/rsi" method="post">
+            <div class="row">
+               <div class="col-lg-3">
+                  <div class="form-group">
+                     <label class="form-title">Sector</label>
+                     <select class="form-control" id="sector" name="sector">
+                        <option value="">--- Choose Sector ---</option>
+                        <option value="0">All</option>
+                        <option>Commercial Banks</option>
+                        <option>Development Banks</option>
+                        <option>Finance</option>
+                        <option>Hotels</option>
+                        <option>Hydro Power</option>
+                        <option>Investment</option>
+                        <option>Life Insurance</option>
+                        <option>Manufacturing and Processing</option>
+                        <option>Microfinance</option>
+                        <option>Non-Life Insurance</option>
+                        <option>Others</option>
+                        <option>Trading</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div class="form-group">
+                     <label class="form-title">Indicator</label>
+                     <select class="form-control" id="indicator" name="indicator">
+                        <option value="">--- Choose Indicator ---</option>
+                        <option value="EMA">EMA</option>
+                        <option value="RSI">RSI</option>
+                        <option value="MACD">MACD</option>
+                        <option value="SMA">SMA</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="col-lg-3">
+                  <div class="form-group">
+                     <label class="form-title">Criteria</label> <span class="criteria"></span>
+                     <select class="form-control" id="criteria" name="criteria">
+                        <option value="">--- Choose Criteria ---</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="col-lg-1">
+                  <div class="form-group">
+                     <button id="clickMeId" class="btn btn-green" type="submit" style="margin-top: 25px;background-color:green;">
+                     <i class="fa fa-search"></i>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </form>
+         <div class="card" style="margin-top:2rem;">
+            <div class="card-body">
+               <div class="mt-4">
+                  <table id="datatable" class="table table-striped table-bordered" style="width:100%">
+                     <thead style="font-weight:1000;">
+                        <tr>
+                           <td>Company Code</td>
+                           <td>Company Name</td>
+                           <td>Sector</td>
+                           <td>RSI</td>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        {% for data in data %}
+                        <tr style="background-color:#1b203d;">
+                           <td>{{ data[0] }}</td>
+                           <td>{{ data[1] }}</td>
+                           <td>{{ data[2] }}</td>
+                           <td>{{ data[3] }}</td>
+                        </tr>
+                        {% endfor %}
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+      </main>
+   </div>
+</body>
+{% endblock %}
+
+</script>
+<style>
+   .form-control {
+   border: 1px solid #ccc;
+   box-shadow: none;
+   font-size: 13px;
+   line-height: 1.42857143;
+   height: 34px;
+   padding: 6px 12px;
+   }
+   .form-control {
+   display: block;
+   width: 100%;
+   height: calc(2.25rem + 2px);
+   padding: 0.375rem 0.75rem;
+   font-size: 1rem;
+   font-weight: 1400;
+   line-height: 1.5;
+   background-clip: padding-box;
+   border: 1px solid #ced4da;
+   border-radius: 0.25rem;
+   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+   }
+   user agent stylesheet
+   option {
+   font-weight: normal;
+   display: block;
+   white-space: nowrap;
+   min-height: 1.2em;
+   padding: 0px 2px 1px;
+   }
+   .form-control {
+   border: 1px solid #ccc;
+   box-shadow: none;
+   font-size: 13px;
+   line-height: 1.42857143;
+   height: 34px;
+   padding: 6px 12px;
+   }
+   .form-control {
+   display: block;
+   width: 100%;
+   height: calc(2.25rem + 2px);
+   padding: 0.375rem 0.75rem;
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1.5;
+   color: #495057;
+   background-color: #fff;
+   background-clip: padding-box;
+   border: 1px solid #ced4da;
+   border-radius: 0.25rem;
+   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+   }
+   button, select {
+   text-transform: none;
+   }
+   button, input, optgroup, select, textarea {
+   margin: 0;
+   font-family: inherit;
+   font-size: inherit;
+   line-height: inherit;
+   }
+</style>
+<script src = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+<script src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js'></script>
