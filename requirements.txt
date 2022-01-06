@@ -16,3 +16,4 @@ whitenoise
 virtualenv
 heroku
 bs4
+openpyxl
