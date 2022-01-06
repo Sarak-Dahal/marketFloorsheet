@@ -17,3 +17,4 @@ virtualenv
 heroku
 bs4
 openpyxl
+html5lib
