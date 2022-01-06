@@ -2,8 +2,12 @@ from flask import render_template, request, session, redirect
 import pandas as pd
 from app import app
 import csv
+from csv import reader
 import sqlite3
-
+import requests
+from bs4 import BeautifulSoup
+import openpyxl
+import html5lib
 
 global session
 
@@ -11,6 +15,7 @@ global session
 @app.route('/')
 def start():
     return render_template('login.html')
+
 
 @app.route('/home')
 def home():
@@ -100,7 +105,7 @@ def home1():
             bankColor = 'blue'
         else:
             bankColor = 'red'
-            
+
         # Trading Index
         trading = other[1][1]
         tradingPC = other[1][2]
@@ -112,7 +117,6 @@ def home1():
         else:
             tradingColor = 'red'
 
-        
         # Hotel and Tourism
         hotel = other[2][1]
         hotelPC = other[2][2]
@@ -123,7 +127,6 @@ def home1():
             hotelColor = 'blue'
         else:
             hotelColor = 'red'
-
 
         # Development Bank Index
         devBank = other[3][1]
@@ -136,7 +139,6 @@ def home1():
         else:
             devBankColor = 'red'
 
-
         # Hydropower Index
         hydro = other[4][1]
         hydroPC = other[4][2]
@@ -147,7 +149,6 @@ def home1():
             hydroColor = 'blue'
         else:
             hydroColor = 'red'
-
 
         # Finance Index
         finance = other[5][1]
@@ -160,7 +161,6 @@ def home1():
         else:
             financeColor = 'red'
 
-
         # Life Insurance
         lifeInsurance = other[10][1]
         lifeInsurancePC = other[10][2]
@@ -171,7 +171,6 @@ def home1():
             lifeInsuranceColor = 'blue'
         else:
             lifeInsuranceColor = 'red'
-
 
         # Non-Life Insurance
         nonLifeInsurance = other[6][1]
@@ -184,8 +183,6 @@ def home1():
         else:
             nonLifeInsuranceColor = 'red'
 
-
-
         # Manufacture
         manufacture = other[7][1]
         manufacturePC = other[7][2]
@@ -196,7 +193,6 @@ def home1():
             manufactureColor = 'blue'
         else:
             manufactureColor = 'red'
-
 
         # Other
         otherIndex = other[8][1]
@@ -209,7 +205,6 @@ def home1():
         else:
             otherIndexColor = 'red'
 
-
         # Microfinance
         microfinance = other[9][1]
         microfinancePC = other[9][2]
@@ -220,7 +215,6 @@ def home1():
             microfinanceColor = 'blue'
         else:
             microfinanceColor = 'red'
-
 
         # Mutual Fund
         mutualFund = other[11][1]
@@ -270,50 +264,36 @@ def home1():
                                sensitivePerC=sensitivePerC, sensColor=sensColor, nepseFloat=nepseFloat,
                                nepseFloatPC=nepseFloatPC, nepseFloatPerC=nepseFloatPerC, senFloat=senFloat
                                , senFloatPC=senFloatPC, senFloatPerC=senFloatPerC, floatColor=floatColor,
-                               floatSensColor=floatSensColor,bank=bank,bankPC=bankPC,bankPerC=bankPerC,bankColor=bankColor,
-                               trading=trading,tradingPC=tradingPC,tradingPerC=tradingPerC,tradingColor=tradingColor,hotel = hotel,
-                               hotelPC = hotelPC,hotelPerC = hotelPerC, hotelColor = hotelColor,devBank = devBank,
-                               devBankPC = devBankPC, devBankPerC = devBankPerC, devBankColor = devBankColor,hydro = hydro,
-                               hydroPC = hydroPC, hydroPerC = hydroPerC, hydroColor = hydroColor,finance = finance,
-                               financePC = financePC, financePerC = financePerC, financeColor = financeColor,
-                               lifeInsurance = lifeInsurance, lifeInsurancePC = lifeInsurancePC, lifeInsurancePerC = lifeInsurancePerC,
-                               lifeInsuranceColor = lifeInsuranceColor,nonLifeInsurance = nonLifeInsurance, nonLifeInsurancePC = nonLifeInsurancePC,
-                               nonLifeInsurancePerC = nonLifeInsurancePerC, nonLifeInsuranceColor = nonLifeInsuranceColor,manufacture = manufacture,
-                               manufacturePC = manufacturePC, manufacturePerC = manufacturePerC, manufactureColor = manufactureColor,
-                               otherIndex = otherIndex, otherIndexPC = otherIndexPC, otherIndexPerC = otherIndexPerC, otherIndexColor = otherIndexColor,
-                               microfinance = microfinance, microfinancePC = microfinancePC, microfinancePerC = microfinancePerC, microfinanceColor = microfinanceColor,
-                               mutualFund = mutualFund, mutualFundPC = mutualFundPC, mutualFundPerC = mutualFundPerC, mutualFundColor = mutualFundColor)
+                               floatSensColor=floatSensColor, bank=bank, bankPC=bankPC, bankPerC=bankPerC,
+                               bankColor=bankColor,
+                               trading=trading, tradingPC=tradingPC, tradingPerC=tradingPerC, tradingColor=tradingColor,
+                               hotel=hotel,
+                               hotelPC=hotelPC, hotelPerC=hotelPerC, hotelColor=hotelColor, devBank=devBank,
+                               devBankPC=devBankPC, devBankPerC=devBankPerC, devBankColor=devBankColor, hydro=hydro,
+                               hydroPC=hydroPC, hydroPerC=hydroPerC, hydroColor=hydroColor, finance=finance,
+                               financePC=financePC, financePerC=financePerC, financeColor=financeColor,
+                               lifeInsurance=lifeInsurance, lifeInsurancePC=lifeInsurancePC,
+                               lifeInsurancePerC=lifeInsurancePerC,
+                               lifeInsuranceColor=lifeInsuranceColor, nonLifeInsurance=nonLifeInsurance,
+                               nonLifeInsurancePC=nonLifeInsurancePC,
+                               nonLifeInsurancePerC=nonLifeInsurancePerC, nonLifeInsuranceColor=nonLifeInsuranceColor,
+                               manufacture=manufacture,
+                               manufacturePC=manufacturePC, manufacturePerC=manufacturePerC,
+                               manufactureColor=manufactureColor,
+                               otherIndex=otherIndex, otherIndexPC=otherIndexPC, otherIndexPerC=otherIndexPerC,
+                               otherIndexColor=otherIndexColor,
+                               microfinance=microfinance, microfinancePC=microfinancePC,
+                               microfinancePerC=microfinancePerC, microfinanceColor=microfinanceColor,
+                               mutualFund=mutualFund, mutualFundPC=mutualFundPC, mutualFundPerC=mutualFundPerC,
+                               mutualFundColor=mutualFundColor)
 
-
-TABLE_TEMPLATE = """
-<style>
-   table, th, td {
-   border: 1px solid black;
-   }
-</style>
-<table style="width: 100%">
-   <thead>
-      <th>Name</th>
-      <th>Code</th>
-      <th>Sector</th>
-      <th>RSI</th>
-   </thead>
-   <tbody>
-      {% for row in data %}
-      <tr>
-         <td>{{ row.name }}</td>
-         <td>{{ row.code }}</td>
-         <td>{{ row.sector }}</td>
-         <td>{{ row.rsi }}</td>
-      </tr>
-      {% endfor %}
-   </tbody>
-</table>
-"""
 
 import os.path
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-csv_path = os.path.join(BASE_DIR,'bingo.csv')
+csv_path = os.path.join(BASE_DIR, 'bingo.csv')
+
+
 @app.route('/rsi')
 def rsi():
     if session['loggedin'] == False:
@@ -325,16 +305,18 @@ def rsi():
         sql_query = """ SELECT * FROM companyRsi where rsiValue = 3000"""
         cursor.execute(sql_query)
         data = cursor.fetchall()
-        msg=""
-        return render_template('rsi.html', headerTitle=headerTitle, data=data,msg=msg)
+        msg = ""
+        return render_template('rsi.html', headerTitle=headerTitle, data=data, msg=msg)
+
 
 db_path = os.path.join(BASE_DIR, "company.sqlite")
 conn = sqlite3.connect(db_path, check_same_thread=False)
 cursor = conn.cursor()
 
+
 @app.route('/rsi', methods=['GET', 'POST'])
 def RSIcalc():
-    sector= request.form.get('sector')
+    sector = request.form.get('sector')
     indicator = request.form.get('indicator')
     criteria = request.form.get('criteria')
 
@@ -347,16 +329,108 @@ def RSIcalc():
         cursor.execute(sql_query)
         data = cursor.fetchall()
     elif (sector != '0' and indicator == 'RSI' and criteria == 'RSIB30'):
-        cursor.execute(" SELECT * FROM companyRsi where rsiValue < 30 and companySector LIKE '%s'"% sector)
+        cursor.execute(" SELECT * FROM companyRsi where rsiValue < 30 and companySector LIKE '%s'" % sector)
         data = cursor.fetchall()
     elif (sector != '0' and indicator == 'RSI' and criteria == 'RSIA70'):
         cursor.execute(" SELECT * FROM companyRsi where rsiValue > 70 and companySector LIKE '%s'" % sector)
         data = cursor.fetchall()
     else:
-        msg="Please enter correct details !s"
-        return render_template('rsi.html',msg=msg)
+        msg = "Please enter correct details !s"
+        return render_template('rsi.html', msg=msg)
 
-    return render_template('rsi.html',data=data)
+    return render_template('rsi.html', data=data)
+
+
+@app.route('/strategy')
+def strategy():
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        return render_template('strategy.html')
+
+
+@app.route('/rangeBreakout')
+def homeRangeBreakout():
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        headerTitle = 'Range Breakout'
+        msg = ""
+        return render_template('rangeBreakout.html', headerTitle=headerTitle, msg=msg)
+
+
+@app.route('/rangeBreakout', methods=['GET', 'POST'])
+def rangeBreakout():
+    if session['loggedin'] == False:
+        msg = "You Must Login to access the Page"
+        color = 'red'
+        return render_template("login.html", msg=msg, color=color)
+    else:
+        headerTitle = 'Range Breakout'
+        # Getting User input
+        sign = request.form.get('breakout')
+        symbol = str(sign.upper())
+        # Checking if user input exist
+        cursor.execute(" SELECT * FROM companyRsi where companyCode == ?", (symbol,))
+        data = cursor.fetchone()
+
+        if (data != 0 and data != None):
+            # print(data)
+            url = 'https://nepalstockinfo.com/companyhistory/' + symbol + ''
+            response = requests.get(url)
+            soup = BeautifulSoup(response.text, 'html.parser')
+
+            table = soup.find_all(
+                class_='table table-bordered stripe row-border order-column example_datatable_fixedcolumn')
+            dataFrame = pd.read_html(str(table))[0]
+            dataFrame.to_csv('tab.csv')
+            dataFrame = pd.read_csv('tab.csv', nrows=2)
+            # Cleaning CSV File
+            del dataFrame["Unnamed: 0"]
+            del dataFrame["S.N"]
+            dataFrame.to_csv('tab.csv')
+
+            # Yesterday Day High Day Low Current Price
+
+            yesDh = dataFrame['Max Price']
+            yesterdayDh = yesDh[1]
+
+            yesDl = dataFrame['Min Price']
+            yesterdayDl = yesDl[1]
+
+            cPrice = dataFrame['Price']
+            currentPrice = cPrice[0]
+
+            # Trending Market
+            if currentPrice > yesterdayDh:
+                trendingMarket = 'For short term you may invest on the stock according to the strategy.'
+            elif currentPrice < yesterdayDl:
+                trendingMarket = 'You may sell the stock or stop loss it according to the strategy.'
+            else:
+                trendingMarket = 'Hold until next trading day.'
+
+            # Ranging Market
+            if currentPrice < yesterdayDh:
+                rangingMarket = 'For Long Term, you may invest on the stock according to the strategy.'
+            elif currentPrice > yesterdayDl:
+                rangingMarket = 'You may take an exit from the stock according to the strategy.'
+            else:
+                rangingMarket = 'Hold until next trading day.'
+
+            explanation = 'Company choosen: ' + symbol + ''
+
+
+        else:
+            msg = "Please input correct Symbol of the Company"
+            return render_template('rangeBreakout.html', msg=msg)
+
+        return render_template('rangeBreakout.html',trendingMarket=trendingMarket, rangingMarket=rangingMarket,currentPrice=currentPrice, yesterdayDh=yesterdayDh,
+                               yesterdayDl=yesterdayDl, headerTitle=headerTitle, dataFrame=dataFrame,
+                               explanation=explanation)
 
 
 @app.route('/news')
@@ -412,8 +486,6 @@ def myAccount():
     else:
         headerTitle = 'My Account'
         return render_template('myAccount.html', headerTitle=headerTitle)
-
-
 
 
 @app.route("/login", methods=['GET', 'POST'])

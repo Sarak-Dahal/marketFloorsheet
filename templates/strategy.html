@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css"/>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+
+   <body style="background-color: #1b203d !important; color:white;">
+      <div class="main-content">
+         <header>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+               crossorigin="anonymous"></script>
+            <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+         </header>
+         <main>
+           <div class="grid">
+             <div class="row">
+               <div class="content">
+                 <img class="img-thumbnail" src="./static/img/strategy.png" alt="">
+                 <h4><u>Range Breakout</u></h4>
+                 <p>Strategy By: Mr. Yogesh </p>
+                 <p>Accuracy: x%</p>
+                   <form action="/rangeBreakout">
+                       <button class="btn btn-green">View</button>
+                   </form>
+
+               </div>
+               <div class="content">
+                 <img class="img-thumbnail" src="./static/img/commingSoon.jpg" alt="">
+                 <h4><u>Strategy Name</u></h4>
+                 <p>Strategy By: XYZ</p>
+                 <p>Accuracy: x%</p>
+                 <button class="btn btn-green" disabled>View</button>
+               </div>
+               <div class="content">
+                 <img class="img-thumbnail" src="./static/img/commingSoon.jpg" alt="">
+                 <h4><u>Strategy Name</u></h4>
+                 <p>Strategy By: XYZ</p>
+                 <p>Accuracy: x%</p>
+                 <button class="btn btn-green" disabled>View</button>
+               </div>
+             </div>
+           </div>
+
+         </main>
+      </div>
+   </body>
+<style>
+  .content{
+    margin:3rem;
+    float:left;
+    width:25%;
+  }
+  .btn{
+  background-color:green;
+  }
+  h4{
+  font-weight:1000;
+  }
+</style>
+{% endblock %}

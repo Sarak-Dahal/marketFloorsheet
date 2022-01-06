@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.15/css/dataTables.jqueryui.min.css"/>
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.jqueryui.min.js"></script>
+
+   <body style="background-color: #1b203d !important; color:white;">
+      <div class="main-content">
+         <header>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
+            <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.js"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+               crossorigin="anonymous"></script>
+            <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+
+         </header>
+         <main style="margin:2rem;">
+            <h4 style="color:red;text-align:center;">{{ msg }}</h4>
+           <form class="form-inline mr-auto" action="/rangeBreakout" method="post" style="text-tranform:uppercase">
+              <input name="breakout" class="form-control mr-sm-2 text-uppercase" type="text" placeholder="Stock Symbol" style="width:30%;margin-left:30%;" required>
+              <button class="btn predict" type="submit">Search</button>
+           </form>
+            <br>
+            <br>
+
+
+            <div class="area">
+               <h4>{{ explanation }}</h4>
+               <div class="column">
+                <h3>Yesterday's High Price: {{ yesterdayDh }}</h3>
+               </div>
+               <div class="column">
+                  <h3>Yesterday's Low Price: {{ yesterdayDl }}</h3>
+               </div>
+               <div class="column">
+                  <h3>Current Price: {{ currentPrice }}</h3>
+               </div>
+            </div>
+
+            <div class="flex" style="border-style: solid;">
+               <div class="flexColumn">
+                  <h3>Trending Market</h3>
+                   <h4 class="result">{{ trendingMarket }}</h4>
+               </div>
+               <div class="flexColumn">
+                  <h3>Ranging Market</h3>
+                   <h4 class="result">{{ rangingMarket }}</h4>
+               </div>
+            </div>
+
+
+         </main>
+      </div>
+   </body>
+<style>
+.column{
+    margin:3rem;
+    float:left;
+    width:25%;
+  }
+  .flexColumn{
+   margin:3rem;
+    float:left;
+    width:40%;
+  }
+  .btn{
+  background-color:green;
+  }
+  h4,h3{
+  font-weight:500;
+  }
+  .result{
+    color:green;
+  }
+
+</style>
+{% endblock %}
