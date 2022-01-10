@@ -493,7 +493,8 @@ def login():
     if request.method == 'POST' and 'un' in request.form and 'ps' in request.form:
         un = request.form['un']
         ps = request.form['ps']
-        if (un == "sarak" and ps == "sarak@45"):
+
+        if (un == "santosh" and ps == "sanotosh@45"):
             session['loggedin'] = True
             session['id'] = un
             return redirect('floorsheet')
